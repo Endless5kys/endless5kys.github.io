@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Endless Skys Drone Services</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .contact-section {
+      padding: 2rem 5% 6rem; /* Reduced top padding for closer spacing */
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-content {
+      padding-bottom: 1rem; /* Tightens space under header */
+    }
+    .contact-form {
+      background: rgba(227, 242, 253, 0.7);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(30, 64, 175, 0.15);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #1e40af;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      background: white;
+    }
+    textarea {
+      min-height: 150px;
+    }
+    button {
+      background: #1fb024;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #198c1d;
+    }
+    .success-message, .error-message {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      display: none;
+    }
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+    }
+    .error-message {
+      background: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Endless Skys</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Contact Us</h1>
+      <p>Get in touch for quotes, questions, or to discuss your project.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-form">
+      <form id="contact-form" action="https://formspree.io/f/mnjbnwad" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="service">Service Interested In</label>
+          <select id="service" name="service">
+            <option value="">Select one</option>
+            <option value="photography">Aerial Photography / Videography</option>
+            <option value="inspections">Inspections & Monitoring</option>
+            <option value="surveys">Precision Surveys & Mapping</option>
+            <option value="volumetric">Volumetric Stockpile Monitoring</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div id="success-message" class="success-message">
+        Thank you! Your message has been sent. We'll get back to you soon.
+      </div>
+      <div id="error-message" class="error-message">
+        Oops! Something went wrong. Please try again or email us directly.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Endless Skys. All rights reserved. | FAA Part 107 Certified | Insured</p>
+  </footer>
+
+  <!-- Random background script with your latest file list -->
+  <script>
+    // Updated backgrounds list (from your most recent array)
+    const backgrounds = [
+      { type: 'video', src: 'assets/backgrounds/Mini4.mp4' },
+      { type: 'video', src: 'assets/backgrounds/Matrice4TD.mp4' },
+      { type: 'image', src: 'assets/backgrounds/sky-hero.jpg' },
+      { type: 'image', src: 'assets/backgrounds/aerial-farm.jpg' },
+      { type: 'image', src: 'assets/backgrounds/blue-sky-drone.jpg' },
+      { type: 'video', src: 'assets/backgrounds/Drone-over-fields.mp4' },
+      { type: 'video', src: 'assets/backgrounds/Forest Drone Hover.mp4' },
+      { type: 'video', src: 'assets/backgrounds/mountian-aerial-loop.mp4' },
+      { type: 'video', src: 'assets/backgrounds/ocean-drone-pan.mp4' },
+      { type: 'video', src: 'assets/backgrounds/sunset-drone-flyover.mp4' },
+      { type: 'video', src: 'assets/backgrounds/waterfall flight.mp4' },
+      { type: 'video', src: 'assets/backgrounds/motorcycle-chase.mp4' },
+      // Add any new files here as you get them
+    ];
+
+    // Pick random, avoid last used
+    let lastUsed = localStorage.getItem('lastBackground') || '';
+    let available = backgrounds.filter(b => b.src !== lastUsed);
+    if (available.length === 0) available = backgrounds;
+
+    const chosen = available[Math.floor(Math.random() * available.length)];
+    localStorage.setItem('lastBackground', chosen.src);
+
+    // Apply when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      const hero = document.querySelector('.hero');
+      if (!hero) return;
+
+      if (chosen.type === 'video') {
+        const videoHTML = `
+          <video class="hero-video" autoplay muted loop playsinline>
+            <source src="${chosen.src}" type="video/mp4">
+            <img src="assets/backgrounds/sky-hero.jpg" alt="Fallback aerial view">
+          </video>
+        `;
+        hero.insertAdjacentHTML('afterbegin', videoHTML);
+      } else {
+        hero.style.background = `linear-gradient(rgba(195, 218, 254, 0.55), rgba(195, 218, 254, 0.55)), url('${chosen.src}') center/cover no-repeat fixed`;
+      }
+    });
+  </script>
+
+  <!-- Form submission handling -->
+  <script>
+    const form = document.getElementById('contact-form');
+    const successMsg = document.getElementById('success-message');
+    const errorMsg = document.getElementById('error-message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          successMsg.style.display = 'block';
+          form.reset();
+        } else {
+          errorMsg.style.display = 'block';
+        }
+      } catch (error) {
+        errorMsg.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Endless Skys - Professional Drone Services</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Endless Skys</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="Mini4.mp4" type="video/mp4">
+      <!-- Fallback static image if video fails to load -->
+      <img src="sky-hero.jpg" alt="Aerial drone view background">
+    </video>
+
+    <div class="hero-content">
+      <h1>Ride the Sky<br>Far and Wide</h1>
+      <p>Professional drone photography, videography, inspections & aerial mapping services.</p>
+      <a href="contact.html" class="btn">Get a Free Quote</a>
+    </div>
+  </section>
+
+  <section id="intro">
+    <h2>Welcome to Endless Skys</h2>
+    <p>We provide high-quality drone services for real estate, events, construction, agriculture, inspections, precision construction surveys for CAD drawings and more. FAA Part 107 certified pilots, state-of-the-art equipment, and stunning results every time.</p>
+  </section>
+
+  <!-- Future sections: e.g., services teaser, testimonials -->
+
+  <footer>
+    <p>&copy; 2026 Endless Skys. All rights reserved. | FAA Part 107 Certified | Insured</p>
+  </footer>
+
+  <script>
+ // List of your backgrounds (update paths as needed)
+  const backgrounds = [
+    { type: 'video', src: 'assets/backgrounds/Mini4.mp4' },
+    { type: 'video', src: 'assets/backgrounds/Matrice4TD.mp4' },
+    { type: 'image', src: 'assets/backgrounds/sky-hero.jpg' },
+    { type: 'image', src: 'assets/backgrounds/aerial-farm.jpg' },
+    { type: 'image', src: 'assets/backgrounds/blue-sky-drone.jpg' },
+    { type: 'video', src: 'assets/backgrounds/Drone-over-fields.mp4' },
+    { type: 'video', src: 'assets/backgrounds/Forest Drone Hover.mp4' },
+    { type: 'video', src: 'assets/backgrounds/mountian-aerial-loop.mp4' },
+    { type: 'video', src: 'assets/backgrounds/ocean-drone-pan.mp4' },
+    { type: 'video', src: 'assets/backgrounds/sunset-drone-flyover.mp4' },
+    { type: 'video', src: 'assets/backgrounds/waterfall flight.mp4' },
+    { type: 'video', src: 'assets/backgrounds/motorcycle-chase.mp4' },
+     // Add 7–10 more here (mix of .mp4 and .jpg)
+  ];
+
+
+  // Avoid repeating the previous page's background
+  let lastUsed = localStorage.getItem('lastBackground') || '';
+  let available = backgrounds.filter(b => b.src !== lastUsed);
+  if (available.length === 0) available = backgrounds;
+
+  const chosen = available[Math.floor(Math.random() * available.length)];
+  localStorage.setItem('lastBackground', chosen.src);
+
+  // Apply when page is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    if (chosen.type === 'video') {
+      const videoHTML = `
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="${chosen.src}" type="video/mp4">
+          <img src="assets/backgrounds/sky-hero.jpg" alt="Fallback aerial view">
+        </video>
+      `;
+      hero.insertAdjacentHTML('afterbegin', videoHTML);
+    } else {
+      hero.style.background = `linear-gradient(rgba(195, 218, 254, 0.55), rgba(195, 218, 254, 0.55)), url('${chosen.src}') center/cover no-repeat fixed`;
+    }
+  });
+</script>
+</body>
+</html>

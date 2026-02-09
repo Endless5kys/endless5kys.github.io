@@ -1,0 +1,229 @@
+/* style.css - Endless Skys Drone Services Theme */
+
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #c3dafe;
+  color: #0f172a;
+  line-height: 1.6;
+  padding-top: 90px;
+}
+
+/* Header */
+header {
+  background: linear-gradient(to right, #60a5fa, #1e40af);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 5%;
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #bfdbfe;
+}
+
+/* Hero section – reduced height to show form on load */
+.hero {
+  position: relative;
+  height: 50vh;                 /* ← Reduced to 50vh so form is visible near top */
+  min-height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 5%;
+}
+
+/* Video background (stationary) */
+.hero-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(195, 218, 254, 0.55);
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  padding-bottom: 0.5rem;      /* Tight spacing under header text */
+}
+
+.hero h1 {
+  font-size: 4.8rem;
+  margin-bottom: 1.5rem;
+  color: #1e3a8a;
+  line-height: 1.1;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero p {
+  font-size: 1.7rem;
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(31, 176, 36, 0.55), rgba(25, 140, 29, 0.45));
+  color: white;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 40px rgba(31, 176, 36, 0.55),
+              inset 0 6px 18px rgba(255, 255, 255, 0.50),
+              inset 0 -6px 18px rgba(0, 0, 0, 0.38);
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.65),
+               0 -2px 3px rgba(0, 0, 0, 0.85),
+               0 0 10px rgba(31, 176, 36, 0.75);
+  letter-spacing: 0.6px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(31, 176, 36, 0.75),
+              inset 0 8px 22px rgba(255, 255, 255, 0.60),
+              inset 0 -8px 22px rgba(0, 0, 0, 0.45);
+  background: linear-gradient(135deg, rgba(31, 176, 36, 0.65), rgba(25, 140, 29, 0.55));
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 6px 20px rgba(31, 176, 36, 0.45),
+              inset 0 8px 28px rgba(0, 0, 0, 0.55),
+              inset 0 -4px 14px rgba(255, 255, 255, 0.35);
+}
+
+/* Intro section */
+#intro {
+  padding: 6rem 5% 8rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#intro h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #1e40af;
+}
+
+#intro p {
+  font-size: 1.3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(to right, #1e40af, #3b82f6);
+  text-align: center;
+  padding: 2.5rem 5%;
+  color: white;
+  margin-top: 4rem;
+}
+
+/* Contact page specific */
+.contact-section {
+  padding: 1rem 5% 6rem; /* Reduced top padding – form closer to header */
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Mobile fallback & adjustments */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(30, 64, 175, 0.9);
+    padding: 1rem;
+    width: 100%;
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+  .hero p {
+    font-size: 1.4rem;
+  }
+  .hero-video {
+    display: none;
+  }
+  .hero {
+    height: 45vh;                /* Shorter on mobile for form visibility */
+    min-height: 350px;
+    background: linear-gradient(rgba(195, 218, 254, 0.55), rgba(195, 218, 254, 0.55)),
+                url('assets/backgrounds/sky-hero.jpg') center/cover no-repeat fixed;
+  }
+  .hero-content {
+    padding-bottom: 0.5rem;
+  }
+  .contact-section {
+    padding: 0.5rem 5% 6rem;    /* Almost no top gap on phones */
+  }
+}
