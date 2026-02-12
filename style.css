@@ -1,5 +1,25 @@
 /* style.css - Endless Skys Drone Services Theme */
 
+/* Global solid white 0.5px outline on ALL text in body for readability */
+body, 
+body * {
+  text-shadow: 
+    -0.5px -0.5px 0 #fff,  
+     0.5px -0.5px 0 #fff,
+    -0.5px  0.5px 0 #fff,
+     0.5px  0.5px 0 #fff,
+    -0.5px  0   0 #fff,
+     0.5px  0   0 #fff,
+     0   -0.5px 0 #fff,
+     0    0.5px 0 #fff;
+}
+
+/* Remove outline from header and footer text only */
+header, header *,
+footer, footer * {
+  text-shadow: none;
+}
+
 /* Reset and base */
 * {
   margin: 0;
@@ -12,7 +32,7 @@ body {
   background-color: #c3dafe;
   color: #0f172a;
   line-height: 1.6;
-  padding-top: 90px;
+  padding-top: 120px;
 }
 
 /* Header */
@@ -57,10 +77,10 @@ nav {
   color: #bfdbfe;
 }
 
-/* Hero section – reduced height to show form on load */
+/* Hero section – reduced height */
 .hero {
   position: relative;
-  height: 50vh;                 /* ← Reduced to 50vh so form is visible near top */
+  height: 50vh;
   min-height: 400px;
   overflow: hidden;
   display: flex;
@@ -98,7 +118,7 @@ nav {
   position: relative;
   z-index: 1;
   max-width: 900px;
-  padding-bottom: 0.5rem;      /* Tight spacing under header text */
+  padding-bottom: 0.5rem;
 }
 
 .hero h1 {
@@ -106,7 +126,16 @@ nav {
   margin-bottom: 1.5rem;
   color: #1e3a8a;
   line-height: 1.1;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  /* Slightly thicker 0.8px white solid outline for main heading */
+  text-shadow: 
+    -0.8px -0.8px 0 #fff,  
+     0.8px -0.8px 0 #fff,
+    -0.8px  0.8px 0 #fff,
+     0.8px  0.8px 0 #fff,
+    -0.8px  0   0 #fff,
+     0.8px  0   0 #fff,
+     0   -0.8px 0 #fff,
+     0    0.8px 0 #fff;
 }
 
 .hero p {
@@ -115,6 +144,16 @@ nav {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  /* 0.8px white solid outline for paragraph text in hero */
+  text-shadow: 
+    -0.8px -0.8px 0 #fff,  
+     0.8px -0.8px 0 #fff,
+    -0.8px  0.8px 0 #fff,
+     0.8px  0.8px 0 #fff,
+    -0.8px  0   0 #fff,
+     0.8px  0   0 #fff,
+     0   -0.8px 0 #fff,
+     0    0.8px 0 #fff;
 }
 
 /* Button */
@@ -186,10 +225,20 @@ footer {
 
 /* Contact page specific */
 .contact-section {
-  padding: 1rem 5% 6rem; /* Reduced top padding – form closer to header */
+  padding: 1rem 5% 6rem;
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
+}
+
+/* Gallery page – extra clearance so top row is below header */
+.gallery {
+  padding: 120px 5% 6rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
 }
 
 /* Mobile fallback & adjustments */
@@ -215,7 +264,7 @@ footer {
     display: none;
   }
   .hero {
-    height: 45vh;                /* Shorter on mobile for form visibility */
+    height: 45vh;
     min-height: 350px;
     background: linear-gradient(rgba(195, 218, 254, 0.55), rgba(195, 218, 254, 0.55)),
                 url('assets/backgrounds/sky-hero.jpg') center/cover no-repeat fixed;
@@ -224,6 +273,9 @@ footer {
     padding-bottom: 0.5rem;
   }
   .contact-section {
-    padding: 0.5rem 5% 6rem;    /* Almost no top gap on phones */
+    padding: 0.5rem 5% 6rem;
+  }
+  .gallery {
+    padding-top: 100px;
   }
 }

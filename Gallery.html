@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gallery - Endless Skys Drone Services</title>
+  <title>Gallery - Endless Skys</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
     .gallery {
-      padding: 6rem 5%;
+      padding: 6rem 5% 6rem;
       max-width: 1400px;
       margin: 0 auto;
       display: grid;
@@ -52,14 +52,14 @@
     }
     .under-construction {
       text-align: center;
-      padding: 2rem 5% 4rem;
+      padding: 1rem 5% 2rem;
       color: #1e3a8a;
       font-size: 1.4rem;
       max-width: 900px;
       margin: 0 auto;
     }
     .under-construction h3 {
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       color: #1e40af;
     }
   </style>
@@ -82,8 +82,7 @@
 
   <!-- Hero section with random background -->
   <section class="hero">
-    <!-- Random background inserted here by script below -->
-    <div class="hero-content">
+    <div class="hero-content" style="margin-top: 3rem;"> <!-- ← Text block lowered 3rem -->
       <h1>Gallery</h1>
       <p>Real footage & photos from our drone missions.</p>
       <div class="under-construction">
@@ -101,37 +100,31 @@
   </footer>
 
   <!-- Random background script -->
-   <script>
- // List of your backgrounds (update paths as needed)
-  const backgrounds = [
-    { type: 'video', src: 'assets/backgrounds/Mini4.mp4' },
-    { type: 'video', src: 'assets/backgrounds/Matrice4TD.mp4' },
-    { type: 'image', src: 'assets/backgrounds/sky-hero.jpg' },
-    { type: 'image', src: 'assets/backgrounds/aerial-farm.jpg' },
-    { type: 'image', src: 'assets/backgrounds/blue-sky-drone.jpg' },
-    { type: 'video', src: 'assets/backgrounds/Drone-over-fields.mp4' },
-    { type: 'video', src: 'assets/backgrounds/Forest Drone Hover.mp4' },
-    { type: 'video', src: 'assets/backgrounds/mountian-aerial-loop.mp4' },
-    { type: 'video', src: 'assets/backgrounds/ocean-drone-pan.mp4' },
-    { type: 'video', src: 'assets/backgrounds/sunset-drone-flyover.mp4' },
-    { type: 'video', src: 'assets/backgrounds/waterfall flight.mp4' },
-    { type: 'video', src: 'assets/backgrounds/motorcycle-chase.mp4' },
-     // Add 7–10 more here (mix of .mp4 and .jpg)
-  ];
+  <script>
+    const backgrounds = [
+      { type: 'video', src: 'assets/backgrounds/Mini4.mp4' },
+      { type: 'video', src: 'assets/backgrounds/Matrice4TD.mp4' },
+      { type: 'image', src: 'assets/backgrounds/sky-hero.jpg' },
+      { type: 'image', src: 'assets/backgrounds/aerial-farm.jpg' },
+      { type: 'image', src: 'assets/backgrounds/blue-sky-drone.jpg' },
+      { type: 'video', src: 'assets/backgrounds/Drone-over-fields.mp4' },
+      { type: 'video', src: 'assets/backgrounds/Forest Drone Hover.mp4' },
+      { type: 'video', src: 'assets/backgrounds/mountian-aerial-loop.mp4' },
+      { type: 'video', src: 'assets/backgrounds/ocean-drone-pan.mp4' },
+      { type: 'video', src: 'assets/backgrounds/sunset-drone-flyover.mp4' },
+      { type: 'video', src: 'assets/backgrounds/waterfall flight.mp4' },
+      { type: 'video', src: 'assets/backgrounds/motorcycle-chase.mp4' },
+    ];
 
-    // Pick random, avoid last used
     let lastUsed = localStorage.getItem('lastBackground') || '';
     let available = backgrounds.filter(b => b.src !== lastUsed);
     if (available.length === 0) available = backgrounds;
-
     const chosen = available[Math.floor(Math.random() * available.length)];
     localStorage.setItem('lastBackground', chosen.src);
 
-    // Apply background
     document.addEventListener('DOMContentLoaded', () => {
       const hero = document.querySelector('.hero');
       if (!hero) return;
-
       if (chosen.type === 'video') {
         const videoHTML = `
           <video class="hero-video" autoplay muted loop playsinline>
@@ -148,17 +141,13 @@
 
   <!-- Gallery population script -->
   <script>
-    // Gallery items – add new ones here when uploading
     const galleryItems = [
       { type: 'photo', src: 'assets/gallery/photos/aerial-farm.jpg', alt: 'Aerial farm landscape' },
       { type: 'photo', src: 'assets/gallery/photos/drone-stockpile.jpg', alt: 'Rock and aggregate stockpile' },
       { type: 'photo', src: 'assets/gallery/photos/blue-sky-drone.jpg', alt: 'Endless blue sky flight' },
       { type: 'photo', src: 'assets/gallery/photos/construction-aerial.jpg', alt: 'Construction site survey' },
-
       { type: 'video-local', src: 'assets/gallery/videos/Mini4.mp4', alt: 'Mini 4 Pro flight demo' },
       { type: 'video-local', src: 'assets/gallery/videos/Matrice4TD.mp4', alt: 'Matrice 4TD thermal inspection' },
-
-      // Add more photos/videos/YouTube here as you upload
     ];
 
     const container = document.getElementById('gallery-container');
@@ -166,7 +155,6 @@
     galleryItems.forEach(item => {
       const div = document.createElement('div');
       div.className = 'gallery-item';
-
       if (item.type === 'photo') {
         div.innerHTML = `
           <img src="${item.src}" alt="${item.alt || 'Aerial photo'}" loading="lazy">
@@ -183,18 +171,16 @@
       } else if (item.type === 'youtube') {
         div.classList.add('youtube');
         div.innerHTML = `
-          <iframe 
-            data-src="https://www.youtube.com/embed/${item.id}?rel=0&modestbranding=1&showinfo=0" 
+          <iframe
+            data-src="https://www.youtube.com/embed/${item.id}?rel=0&modestbranding=1&showinfo=0"
             frameborder="0" allowfullscreen loading="lazy">
           </iframe>
           <div class="overlay-title">${item.alt || 'YouTube Video'}</div>
         `;
       }
-
       container.appendChild(div);
     });
 
-    // Lazy-load YouTube iframes
     const lazyFrames = document.querySelectorAll('.youtube iframe[data-src]');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
