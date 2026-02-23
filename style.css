@@ -11,8 +11,9 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #c3dafe;
   color: #0f172a;
-  line-height: 1.6;
+  line-height: 1.7; /* Slightly increased for better readability */
   padding-top: 120px;
+  letter-spacing: 0.2px; /* Subtle spacing to prevent smashed letters */
 }
 
 /* Global lighter outline on body text (excluding header, footer, buttons) */
