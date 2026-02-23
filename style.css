@@ -15,7 +15,7 @@ body {
   padding-top: 120px;
 }
 
-/* Global solid white 0.5px outline on ALL text (except header & footer) */
+/* Global solid white outline on all body text (except header & footer) */
 body, body * {
   text-shadow: 
     -0.5px -0.5px 0 #fff,  
@@ -59,6 +59,36 @@ nav {
   color: white;
 }
 
+/* Hamburger menu button (hidden on desktop, shown on mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+/* Hamburger to X animation when menu is open */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Nav links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -226,7 +256,7 @@ footer {
   text-align: center;
 }
 
-/* Gallery page – clearance for header */
+/* Gallery page */
 .gallery {
   padding: 120px 5% 6rem;
   max-width: 1400px;
@@ -236,28 +266,36 @@ footer {
   gap: 1.5rem;
 }
 
-/* Mobile fallback & adjustments – this is the key new part */
+/* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
   body {
-    padding-top: 100px; /* Less top padding on small screens */
+    padding-top: 80px; /* Reduced top padding on mobile */
   }
 
-  nav {
-    flex-direction: column;
-    gap: 1rem;
+  .hamburger {
+    display: flex; /* Show hamburger on mobile */
   }
 
   .nav-links {
+    display: none; /* Hide horizontal nav on mobile */
     flex-direction: column;
-    gap: 1rem;
-    background: rgba(30, 64, 175, 0.9);
-    padding: 1rem;
+    gap: 1.5rem;
+    background: rgba(30, 64, 175, 0.95);
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
+    padding: 2rem 5%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when hamburger clicked */
   }
 
   .hero {
-    height: 40vh; /* Shorter hero on mobile */
-    min-height: 300px;
+    height: 45vh; /* Shorter hero on mobile */
+    min-height: 280px;
   }
 
   .hero h1 {
@@ -265,7 +303,7 @@ footer {
   }
 
   .hero p {
-    font-size: 1.2rem; /* Smaller subtext */
+    font-size: 1.3rem; /* Smaller subtext */
   }
 
   .hero-content {
@@ -273,19 +311,19 @@ footer {
   }
 
   .gallery {
-    padding-top: 100px; /* Less top padding on mobile */
+    padding-top: 80px;
     gap: 1rem; /* Tighter grid gap */
   }
 
   .gallery-item {
-    aspect-ratio: 4 / 3; /* Slightly taller cards on mobile */
+    aspect-ratio: 4 / 3; /* Better proportions on mobile */
   }
 
   .contact-section, #intro {
-    padding: 2rem 5% 4rem; /* Less vertical padding */
+    padding: 2rem 5% 4rem;
   }
 
-  /* Make outline slightly thicker on mobile for readability */
+  /* Slightly thicker outline on mobile for better readability */
   body, body * {
     text-shadow: 
       -0.8px -0.8px 0 #fff,  
