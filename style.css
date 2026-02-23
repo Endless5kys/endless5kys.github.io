@@ -15,23 +15,30 @@ body {
   padding-top: 120px;
 }
 
-/* Global solid white outline on all body text (except header, footer, and buttons) */
+/* Global lighter outline on body text (excluding header, footer, buttons) */
 body, body *:not(header):not(header *):not(footer):not(footer *):not(button):not(.btn) {
   text-shadow: 
-    -0.5px -0.5px 0 #fff,  
-     0.5px -0.5px 0 #fff,
-    -0.5px  0.5px 0 #fff,
-     0.5px  0.5px 0 #fff,
-    -0.5px  0   0 #fff,
-     0.5px  0   0 #fff,
-     0   -0.5px 0 #fff,
-     0    0.5px 0 #fff;
+    -0.3px -0.3px 0 #fff,
+     0.3px -0.3px 0 #fff,
+    -0.3px  0.3px 0 #fff,
+     0.3px  0.3px 0 #fff;
 }
 
-/* Remove outline from header and footer text */
+/* Even thinner on very small screens */
+@media (max-width: 480px) {
+  body, body *:not(header):not(header *):not(footer):not(footer *):not(button):not(.btn) {
+    text-shadow: 
+      -0.25px -0.25px 0 #fff,
+       0.25px -0.25px 0 #fff,
+      -0.25px  0.25px 0 #fff,
+       0.25px  0.25px 0 #fff;
+  }
+}
+
+/* Remove outline from header, footer, and buttons */
 header, header *,
 footer, footer * {
-  text-shadow: none;
+  text-shadow: none !important;
 }
 
 /* Button styles - no outline, cleaner look */
@@ -41,7 +48,7 @@ footer, footer * {
   color: white;
   padding: 1.2rem 3rem;
   border-radius: 50px;
-  font-weight: 600; /* Slightly bolder for clarity */
+  font-weight: 600;
   font-size: 1.3rem;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -50,8 +57,8 @@ footer, footer * {
               inset 0 6px 18px rgba(255, 255, 255, 0.50),
               inset 0 -6px 18px rgba(0, 0, 0, 0.38);
   transition: all 0.3s ease;
-  text-shadow: none !important; /* No white outline/glow */
-  letter-spacing: 0.8px; /* Prevents smashed letters */
+  text-shadow: none !important;
+  letter-spacing: 0.8px;
   cursor: pointer;
 }
 
@@ -95,7 +102,7 @@ nav {
   color: white;
 }
 
-/* Hamburger menu button (hidden on desktop, shown on mobile) */
+/* Hamburger menu button */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -113,7 +120,7 @@ nav {
   transition: all 0.3s;
 }
 
-/* Hamburger to X animation when menu is open */
+/* Hamburger to X animation */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -267,15 +274,15 @@ footer {
 /* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
   body {
-    padding-top: 80px; /* Reduced top padding on mobile */
+    padding-top: 80px;
   }
 
   .hamburger {
-    display: flex; /* Show hamburger on mobile */
+    display: flex;
   }
 
   .nav-links {
-    display: none; /* Hide horizontal nav on mobile */
+    display: none;
     flex-direction: column;
     gap: 1.5rem;
     background: rgba(30, 64, 175, 0.95);
@@ -288,49 +295,56 @@ footer {
   }
 
   .nav-links.active {
-    display: flex; /* Show when hamburger clicked */
+    display: flex;
   }
 
   .hero {
-    height: 45vh; /* Shorter hero on mobile */
+    height: 45vh;
     min-height: 280px;
   }
 
   .hero h1 {
-    font-size: 2.8rem; /* Smaller headline */
+    font-size: 2.8rem;
   }
 
   .hero p {
-    font-size: 1.3rem; /* Smaller subtext */
+    font-size: 1.3rem;
   }
 
   .hero-content {
-    padding: 0 1rem; /* Less side padding */
+    padding: 0 1rem;
   }
 
   .gallery {
     padding-top: 80px;
-    gap: 1rem; /* Tighter grid gap */
+    gap: 1rem;
   }
 
   .gallery-item {
-    aspect-ratio: 4 / 3; /* Better proportions on mobile */
+    aspect-ratio: 4 / 3;
   }
 
   .contact-section, #intro {
     padding: 2rem 5% 4rem;
   }
 
-  /* Slightly thicker outline on mobile for better readability (excluding buttons) */
+  /* Lighter outline on mobile for body text (excluding buttons) */
   body, body *:not(button):not(.btn) {
     text-shadow: 
-      -0.8px -0.8px 0 #fff,  
-       0.8px -0.8px 0 #fff,
-      -0.8px  0.8px 0 #fff,
-       0.8px  0.8px 0 #fff,
-      -0.8px  0   0 #fff,
-       0.8px  0   0 #fff,
-       0   -0.8px 0 #fff,
-       0    0.8px 0 #fff;
+      -0.3px -0.3px 0 #fff,
+       0.3px -0.3px 0 #fff,
+      -0.3px  0.3px 0 #fff,
+       0.3px  0.3px 0 #fff;
+  }
+
+  /* Even thinner on tiny screens */
+  @media (max-width: 480px) {
+    body, body *:not(button):not(.btn) {
+      text-shadow: 
+        -0.25px -0.25px 0 #fff,
+         0.25px -0.25px 0 #fff,
+        -0.25px  0.25px 0 #fff,
+         0.25px  0.25px 0 #fff;
+    }
   }
 }
