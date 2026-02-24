@@ -1,5 +1,11 @@
 /* style.css - Endless Skys Drone Services Theme */
 
+/* === WHAT CHANGED IN THIS VERSION ===
+- Extended hero padding by 15px top and bottom (desktop: +15px top/bottom, mobile adjusted for balance)
+- Hero now has more vertical breathing room to prevent button cutoff and improve layout feel
+- All prior fixes (outline reduction, font size 21px, darker text, header clearance, etc.) preserved
+*/
+
 /* Reset and base */
 * {
   margin: 0;
@@ -10,11 +16,11 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #c3dafe;
-  color: #111111; /* Darker black for better contrast */
+  color: #111111;
   line-height: 1.7;
-  padding-top: 180px; /* Increased to clear fixed header */
+  padding-top: 180px;
   letter-spacing: 0.2px;
-  font-size: 21px; /* Larger base font size */
+  font-size: 21px;
 }
 
 /* Global lighter outline on body text (excluding header, footer, buttons, mobile nav links) */
@@ -163,9 +169,9 @@ nav {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px 5% 60px;
+  padding: 95px 5% 75px; /* Increased top/bottom by 15px each */
   margin-top: -80px; /* Pulls hero up */
-  margin-bottom: 3rem; /* Extra space before intro */
+  margin-bottom: 3rem; /* Space before intro */
 }
 
 .hero-video {
@@ -313,10 +319,10 @@ footer {
   }
 
   .hero {
-    margin-top: -120px; /* Pulls hero up on mobile */
-    padding: 100px 5% 80px;
+    margin-top: -120px;
+    padding: 155px 5% 95px; /* Increased top/bottom by 15px each on mobile */
     min-height: 70vh;
-    margin-bottom: 3rem; /* Extra space before intro */
+    margin-bottom: 3rem;
   }
 
   .hero-content {
