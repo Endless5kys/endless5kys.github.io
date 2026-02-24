@@ -1,9 +1,9 @@
 /* style.css - Endless Skys Drone Services Theme */
 
 /* === WHAT CHANGED IN THIS VERSION ===
-- Extended hero padding by 15px top and bottom (desktop: +15px top/bottom, mobile adjusted for balance)
-- Hero now has more vertical breathing room to prevent button cutoff and improve layout feel
-- All prior fixes (outline reduction, font size 21px, darker text, header clearance, etc.) preserved
+- Hero margin-top set to -60px (pulls hero up by 60px)
+- Hero margin-bottom set to 10px (reduced space before intro section)
+- All prior fixes (outline reduction, font size 21px, darker text, header clearance, button fixes, etc.) kept intact
 */
 
 /* Reset and base */
@@ -169,9 +169,9 @@ nav {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 95px 5% 75px; /* Increased top/bottom by 15px each */
-  margin-top: -80px; /* Pulls hero up */
-  margin-bottom: 3rem; /* Space before intro */
+  padding: 95px 5% 75px;
+  margin-top: -60px;          /* ← Changed to -60px as requested */
+  margin-bottom: 10px;        /* ← Changed to 10px as requested */
 }
 
 .hero-video {
@@ -320,9 +320,9 @@ footer {
 
   .hero {
     margin-top: -120px;
-    padding: 155px 5% 95px; /* Increased top/bottom by 15px each on mobile */
+    padding: 155px 5% 95px;
     min-height: 70vh;
-    margin-bottom: 3rem;
+    margin-bottom: 10px;        /* ← Changed to 10px as requested */
   }
 
   .hero-content {
