@@ -10,11 +10,11 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #c3dafe;
-  color: #111111; /* Darker black */
+  color: #111111; /* Darker black for better contrast */
   line-height: 1.7;
-  padding-top: 180px;
+  padding-top: 180px; /* Increased to clear fixed header */
   letter-spacing: 0.2px;
-  font-size: 21px; /* Increased from 19px by ~2pt */
+  font-size: 21px; /* Larger base font size */
 }
 
 /* Global lighter outline on body text (excluding header, footer, buttons, mobile nav links) */
@@ -53,7 +53,7 @@ button, .btn,
   padding: 1.2rem 3rem;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 1.4rem; /* Slightly larger to match increased body text */
+  font-size: 1.4rem;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.28);
@@ -101,7 +101,7 @@ nav {
 }
 
 .logo {
-  font-size: 2rem; /* Slightly larger to match increased body */
+  font-size: 2rem;
   font-weight: bold;
   color: white;
 }
@@ -153,7 +153,7 @@ nav {
   color: #bfdbfe;
 }
 
-/* Hero section */
+/* Hero section - pulled up with negative margin */
 .hero {
   position: relative;
   height: 60vh;
@@ -163,7 +163,9 @@ nav {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 80px 5% 40px;
+  padding: 40px 5% 60px;
+  margin-top: -80px; /* Pulls hero up */
+  margin-bottom: 3rem; /* Extra space before intro */
 }
 
 .hero-video {
@@ -304,7 +306,6 @@ footer {
     display: flex;
   }
 
-  /* Remove outline from mobile menu links */
   .nav-links a {
     text-shadow: none !important;
     letter-spacing: 0.5px;
@@ -312,17 +313,19 @@ footer {
   }
 
   .hero {
-    padding: 140px 5% 60px;
+    margin-top: -120px; /* Pulls hero up on mobile */
+    padding: 100px 5% 80px;
     min-height: 70vh;
+    margin-bottom: 3rem; /* Extra space before intro */
   }
 
   .hero-content {
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 3rem;
   }
 
   .hero h1 {
-    font-size: 3.5rem; /* Larger on mobile for better visibility */
+    font-size: 3.5rem;
   }
 
   .hero p {
