@@ -10,11 +10,11 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #c3dafe;
-  color: #0f172a;
+  color: #111111; /* Darker black */
   line-height: 1.7;
   padding-top: 180px;
   letter-spacing: 0.2px;
-  font-size: 19px; /* Increased base font size by 3px */
+  font-size: 21px; /* Increased from 19px by ~2pt */
 }
 
 /* Global lighter outline on body text (excluding header, footer, buttons, mobile nav links) */
@@ -53,7 +53,7 @@ button, .btn,
   padding: 1.2rem 3rem;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.4rem; /* Slightly larger to match increased body text */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.28);
@@ -101,7 +101,7 @@ nav {
 }
 
 .logo {
-  font-size: 1.9rem;
+  font-size: 2rem; /* Slightly larger to match increased body */
   font-weight: bold;
   color: white;
 }
@@ -234,6 +234,7 @@ nav {
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 2rem;
 }
 
 #intro h2 {
@@ -279,6 +280,7 @@ footer {
 @media (max-width: 768px) {
   body {
     padding-top: 240px;
+    font-size: 18px;
   }
 
   .hamburger {
@@ -320,16 +322,16 @@ footer {
   }
 
   .hero h1 {
-    font-size: 3.2rem;
+    font-size: 3.5rem; /* Larger on mobile for better visibility */
   }
 
   .hero p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .btn {
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
+    padding: 1.1rem 2.8rem;
+    font-size: 1.3rem;
   }
 
   .gallery {
@@ -343,6 +345,10 @@ footer {
 
   .contact-section, #intro {
     padding: 2rem 5% 4rem;
+  }
+
+  #intro {
+    margin-top: 3rem;
   }
 
   /* Lighter outline on mobile body text (excluding buttons/nav links) */
