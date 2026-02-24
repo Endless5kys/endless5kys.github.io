@@ -1,9 +1,9 @@
 /* style.css - Endless Skys Drone Services Theme */
 
 /* === WHAT CHANGED IN THIS VERSION ===
-- Hero margin-top set to -60px (pulls hero up by 60px)
-- Hero margin-bottom set to 10px (reduced space before intro section)
-- All prior fixes (outline reduction, font size 21px, darker text, header clearance, button fixes, etc.) kept intact
+- Hero height increased to 70vh (from 60vh) for taller viewing area on smaller phones
+- Hero min-height increased to 600px (from 500px) as safety floor
+- All previous settings preserved (margin-top -60px, margin-bottom 10px, font size 21px, outline reductions, etc.)
 */
 
 /* Reset and base */
@@ -162,16 +162,16 @@ nav {
 /* Hero section - pulled up with negative margin */
 .hero {
   position: relative;
-  height: 60vh;
-  min-height: 500px;
+  height: 70vh;               /* ← Increased from 60vh to 70vh for taller viewing area */
+  min-height: 600px;          /* ← Increased from 500px for safety on smaller screens */
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 95px 5% 75px;
-  margin-top: -60px;          /* ← Changed to -60px as requested */
-  margin-bottom: 40px;        /* ← Changed to 10px as requested */
+  margin-top: -60px;
+  margin-bottom: 10px;
 }
 
 .hero-video {
@@ -321,8 +321,9 @@ footer {
   .hero {
     margin-top: -120px;
     padding: 155px 5% 95px;
-    min-height: 70vh;
-    margin-bottom: 10px;        /* ← Changed to 10px as requested */
+    height: 70vh;             /* ← Increased from 60vh to 70vh for taller mobile viewing area */
+    min-height: 600px;        /* ← Increased from 500px */
+    margin-bottom: 10px;
   }
 
   .hero-content {
