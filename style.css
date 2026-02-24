@@ -11,13 +11,13 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #c3dafe;
   color: #0f172a;
-  line-height: 1.7; /* Slightly increased for better readability */
-  padding-top: 120px;
-  letter-spacing: 0.2px; /* Subtle spacing to prevent smashed letters */
+  line-height: 1.7; /* Increased for better readability */
+  padding-top: 180px; /* Increased to clear fixed header */
+  letter-spacing: 0.2px; /* Subtle spacing to prevent smashed text */
 }
 
-/* Global lighter outline on body text (excluding header, footer, buttons) */
-body, body *:not(header):not(header *):not(footer):not(footer *):not(button):not(.btn) {
+/* Global lighter outline on body text (excluding header, footer, buttons, mobile nav links) */
+body, body *:not(header):not(header *):not(footer):not(footer *):not(button):not(.btn):not(.nav-links a) {
   text-shadow: 
     -0.3px -0.3px 0 #fff,
      0.3px -0.3px 0 #fff,
@@ -27,7 +27,7 @@ body, body *:not(header):not(header *):not(footer):not(footer *):not(button):not
 
 /* Even thinner on very small screens */
 @media (max-width: 480px) {
-  body, body *:not(header):not(header *):not(footer):not(footer *):not(button):not(.btn) {
+  body, body *:not(header):not(header *):not(footer):not(footer *):not(button):not(.btn):not(.nav-links a) {
     text-shadow: 
       -0.25px -0.25px 0 #fff,
        0.25px -0.25px 0 #fff,
@@ -36,9 +36,11 @@ body, body *:not(header):not(header *):not(footer):not(footer *):not(button):not
   }
 }
 
-/* Remove outline from header, footer, and buttons */
+/* Remove outline from header, footer, buttons, and mobile nav links */
 header, header *,
-footer, footer * {
+footer, footer *,
+button, .btn,
+.nav-links a {
   text-shadow: none !important;
 }
 
@@ -153,14 +155,14 @@ nav {
 /* Hero section */
 .hero {
   position: relative;
-  height: 50vh;
-  min-height: 400px;
+  height: 60vh; /* Taller to give room */
+  min-height: 500px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 5%;
+  padding: 80px 5% 40px; /* Top padding to push content down */
 }
 
 .hero-video {
@@ -275,7 +277,7 @@ footer {
 /* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
   body {
-    padding-top: 80px;
+    padding-top: 240px; /* Strong clearance for fixed header on mobile */
   }
 
   .hamburger {
@@ -299,21 +301,34 @@ footer {
     display: flex;
   }
 
+  /* Remove outline from mobile menu links */
+  .nav-links a {
+    text-shadow: none !important;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+
   .hero {
-    height: 45vh;
-    min-height: 280px;
-  }
-
-  .hero h1 {
-    font-size: 2.8rem;
-  }
-
-  .hero p {
-    font-size: 1.3rem;
+    padding: 140px 5% 60px; /* Push content down inside hero */
+    min-height: 70vh;
   }
 
   .hero-content {
-    padding: 0 1rem;
+    padding-top: 40px;
+    padding-bottom: 3rem;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .hero p {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
   }
 
   .gallery {
@@ -329,8 +344,8 @@ footer {
     padding: 2rem 5% 4rem;
   }
 
-  /* Lighter outline on mobile for body text (excluding buttons) */
-  body, body *:not(button):not(.btn) {
+  /* Lighter outline on mobile body text (excluding buttons/nav links) */
+  body, body *:not(button):not(.btn):not(.nav-links a) {
     text-shadow: 
       -0.3px -0.3px 0 #fff,
        0.3px -0.3px 0 #fff,
@@ -340,7 +355,7 @@ footer {
 
   /* Even thinner on tiny screens */
   @media (max-width: 480px) {
-    body, body *:not(button):not(.btn) {
+    body, body *:not(button):not(.btn):not(.nav-links a) {
       text-shadow: 
         -0.25px -0.25px 0 #fff,
          0.25px -0.25px 0 #fff,
