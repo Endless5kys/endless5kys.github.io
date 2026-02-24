@@ -171,7 +171,7 @@ nav {
   text-align: center;
   padding: 95px 5% 75px;
   margin-top: -60px;          /* ← Changed to -60px as requested */
-  margin-bottom: 10px;        /* ← Changed to 10px as requested */
+  margin-bottom: 40px;        /* ← Changed to 10px as requested */
 }
 
 .hero-video {
